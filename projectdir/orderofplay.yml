@@ -1,0 +1,17 @@
+---
+- name: Using role
+  hosts: webserver
+  become: true
+  gather_facts: false
+  pre_tasks:
+  - name: Pre Task
+    ansible.builtin.debug:
+      msg: "Deployment of the Network user creation has started"
+  roles:
+    - { role: user.example, my_user: hcl2 }
+  post_tasks:
+  - name: Post Task
+    ansible.builtin.debug:
+      msg: "The user was successfully created"
+...
+

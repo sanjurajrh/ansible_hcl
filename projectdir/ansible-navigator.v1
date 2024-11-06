@@ -1,0 +1,15 @@
+---
+ansible-navigator:
+  ansible:
+    inventories:
+    - /home/student/projectdir/inventory
+  execution-environment:
+    enabled: true
+    image: utility.lab.example.com/ee-supported-rhel8
+    container-engine: podman
+    pull:
+      policy: missing
+  mode: stdout
+  playbook-artifact:
+    enable: false
+    

@@ -1,0 +1,12 @@
+---
+# tasks file for user.example
+# Step 1: Create the user using the builtin user module 
+# Step 2: Define the define variables "my_user"
+# Step 3: Set the password from the variable "my_password" 
+- name: Create the user  {{ my_user }}
+  ansible.builtin.user:
+    name: "{{ my_user }}"
+    password: "{{ my_password | password_hash('sha512') }}"
+    state: present
+    create_home: true
+

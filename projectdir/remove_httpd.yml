@@ -1,0 +1,15 @@
+---
+- name: Remove packages
+  hosts: server[a:c].lab.example.com
+  become: true
+  tasks:
+  - name: Remove the packages
+    ansible.builtin.dnf:
+      name: 
+      - httpd
+      - telnet
+      - vsftpd
+      - mutt
+      - mariadb-server
+      state: absent
+...

@@ -1,0 +1,12 @@
+---
+- name: Using custom collection
+  hosts: all
+  gather_facts: true
+  become: true
+  tasks:
+  - name: Get the mysql_info 
+    community.mysql.mysql_info:
+      filter:
+      - databases
+      - version
+...

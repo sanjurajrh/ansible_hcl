@@ -1,0 +1,9 @@
+---
+# tasks file for loginbanner
+- name: Update the /etc/motd
+  ansible.builtin.copy:
+    content: "{{ banner_text }}"
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: 0644

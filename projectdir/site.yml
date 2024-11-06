@@ -1,0 +1,11 @@
+---
+- name: Using variables
+  hosts: webserver
+  vars_files:
+  - variable.yml
+  tasks:
+  - name: Install the {{ package }} package
+    ansible.builtin.dnf:
+      name: "{{ package }}"
+      state: latest
+...

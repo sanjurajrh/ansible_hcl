@@ -1,0 +1,14 @@
+---
+- name: Using lineinfile
+  hosts: apache
+  become: true
+  tasks:
+  - name: Disable SELinux
+    ansible.builtin.lineinfile:
+      regexp: '^SELINUX='
+      line: "SELINUX=disabled"
+      state: present
+      path: /etc/selinux/config
+  - name: Reboot the system
+    ansible.builtin.reboot:
+...

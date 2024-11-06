@@ -1,0 +1,22 @@
+---
+- name: Using variables
+  hosts: webserver
+  vars_files:
+  - variable.yml
+  vars:
+    myvar: value1
+  tasks:
+  - name: Install the {{ package }} package
+    ansible.builtin.dnf:
+      name: "{{ package }}"
+      state: latest
+  - name: Using the registered values 
+    ansible.builtin.copy:
+      content: "IT Works!!!"
+      dest: /var/www/html/index.html
+    register: example
+
+  - name: Display the output of the task
+    ansible.builtin.debug:
+      var: example 
+...

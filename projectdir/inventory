@@ -1,0 +1,16 @@
+[webserver]
+servera.lab.example.com
+
+[dbserver]
+serverc.lab.example.com
+
+[rolessystem]
+serverd.lab.example.com
+
+[apache]
+serverb.lab.example.com
+
+[webserver:vars]
+package=tree
+
+

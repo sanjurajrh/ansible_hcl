@@ -1,0 +1,16 @@
+---
+- name: Using variables
+  hosts: webserver
+  vars_files:
+  - variable.yml
+  vars_prompt:
+    name: package 
+    prompt: "Enter the package name which you want to manage? "
+    default: telnet
+    private: no
+  tasks:
+  - name: Install the {{ package }} package
+    ansible.builtin.dnf:
+      name: "{{ package }}"
+      state: latest
+...

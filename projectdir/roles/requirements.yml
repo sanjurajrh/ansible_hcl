@@ -1,0 +1,3 @@
+---
+- src: http://serverd.lab.example.com/apache_role.tar.gz
+  name: apache

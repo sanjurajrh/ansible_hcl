@@ -1,0 +1,19 @@
+---
+# tasks file for apache
+- name: Install the required package
+  ansible.builtin.dnf:
+    name: httpd
+    state: latest
+
+- name: Configure the web server
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+  notify: httpd_restart
+
+- name: Open the ports
+  ansible.posix.firewalld:
+    service: http
+    immediate: true
+    permanent: true
+    state: enabled

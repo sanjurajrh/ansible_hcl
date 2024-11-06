@@ -1,0 +1,24 @@
+---
+- name: Remove the user
+  hosts: all
+  tasks:
+  - name: Remove the user
+    ansible.builtin.user:
+      name: hcl
+      state: absent
+
+- name: Create a user and install a package
+  hosts: all
+  vars:
+    password: redhat123
+  tasks:
+  - name: Create the user
+    ansible.builtin.user:
+      name: sanju
+      password: "{{ password | password_hash('sha512') }}"
+      state: present
+  - name: Install a package
+    ansible.builtin.dnf:
+      name: tree
+      state: latest
+...

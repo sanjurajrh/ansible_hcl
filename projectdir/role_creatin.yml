@@ -1,0 +1,30 @@
+---
+- name:
+  hosts: rolessystem
+  tasks:
+  - name: Install the webserver
+    ansible.builtin.dnf:
+      name: 
+      - httpd
+      - firewalld
+      state: latest
+  - name: Added the firewall rul
+    ansible.posix.firewalld:
+      service: http
+      immediate: true
+      permanent: true
+      state: enabled
+  - name: Update the service
+    ansible.builtin.service:
+      name: "{{ item }}"
+      state: started
+      enabled: true
+    loop: 
+    - httpd
+    - firewalld
+
+  - name: Copy the tarball 
+    ansible.builtin.copy:
+      src: apache_role.tar.gz
+      dest: /var/www/html/
+

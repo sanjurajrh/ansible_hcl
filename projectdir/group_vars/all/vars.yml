@@ -1,0 +1,8 @@
+timesync_ntp_servers:
+  - hostname: classroom.example.com
+    iburst: yes
+
+timesync_ntp_provider: chrony
+selinux_state: enforcing
+
+

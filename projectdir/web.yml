@@ -1,0 +1,8 @@
+---
+- name: Deploy the web service from a role
+  hosts: apache
+  gather_facts: true
+  become: true
+  roles:
+  - apache
+...

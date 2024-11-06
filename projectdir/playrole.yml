@@ -1,0 +1,8 @@
+---
+- name: Using role
+  hosts: webserver
+  become: true
+  gather_facts: false
+  roles:
+    - { role: user.example, my_user: hcl1 }
+...

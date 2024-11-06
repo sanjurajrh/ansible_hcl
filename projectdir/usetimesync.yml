@@ -1,0 +1,6 @@
+---
+- name: Time synchronization
+  hosts: all
+  roles:
+  - redhat.rhel_system_roles.timesync
+...

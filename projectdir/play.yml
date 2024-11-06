@@ -1,0 +1,25 @@
+---
+- name: Check and use as per requirements
+  hosts: webserver
+  become: true
+  tasks:
+  - name: Check the package
+    ansible.builtin.shell: rpm -qa httpd
+    register: httpd_status
+
+  - name: Display the package information
+    ansible.builtin.debug:
+      var: httpd_status
+
+  - name: Configure the web server
+    ansible.builtin.copy:
+      src: index.html
+      dest: /var/www/html/index.html
+    when: httpd_status.stdout != ""
+
+  - name: Install the package
+    ansible.builtin.dnf:
+      name: httpd
+      state: latest
+    when: httpd_status.stdout == ''
+...
