@@ -1,0 +1,13 @@
+---
+- name: Bad layout
+  hosts: web
+  become: true
+  tasks:
+  - name: Install package
+    ansible.builtin.yum: name=httpd state=latest
+    notify: restart apache
+
+  handlers:
+  - name: restart apache
+    ansible.builtin.service: name=httpd state=restarted enabled=true
+...

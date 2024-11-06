@@ -1,0 +1,17 @@
+---
+- name: Advantage of using groups
+  hosts: all
+  become: true
+  tasks:
+  - name: Install package on a specific group
+    ansible.builtin.yum:
+      name: httpd
+      state: latest
+    when: inventory_hostname in groups['web']
+
+  - name: Install the Group package on a specific group
+    ansible.builtin.dnf:
+      name: '@Development Tools'
+      state: present
+    when: inventory_hostname in groups['dev']
+...

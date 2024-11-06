@@ -1,0 +1,16 @@
+---
+- name: Bad layout
+  hosts: web
+  become: true
+  tasks:
+  - name: Install package
+    ansible.builtin.shell: yum -y install httpd
+    notify: restart apache
+
+  handlers:
+  - name: restart apache
+    ansible.builtin.service: 
+      name: httpd 
+      state: restarted 
+      enabled: true
+...

@@ -1,0 +1,27 @@
+---
+- name: Purpose of the play
+  hosts: all
+  become: true
+  tasks:
+    - name: Install the package
+      ansible.builtin.dnf:
+        name: 
+          - httpd
+          - firewalld
+        state: latest
+      tags:
+        - install
+
+    - name: Open the ports
+      ansible.posix.firewalld:
+        service: http
+        immediate: true
+        permanent: true
+        state: enabled
+      tags:
+        - firewall
+
+    - name: Default run
+      ansible.builtin.debug:
+        msg: This will run in the default manner
+...

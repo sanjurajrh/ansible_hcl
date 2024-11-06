@@ -1,0 +1,10 @@
+---
+- name: Remove the httpd 
+  hosts: all
+  become: true
+  tasks:
+  - name: Remove the package
+    ansible.builtin.dnf:
+      name: httpd
+      state: absent
+...
