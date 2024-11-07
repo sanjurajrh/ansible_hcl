@@ -1,0 +1,12 @@
+user1:abc:1001:1001:/bin/bash
+user2:abcd:1002:1002:/bin/sh
+user2:abcd:1002:1002:/bin/sh
+user2:abcd:1002:1002:/bin/sh
+user1:abc:1001:1001:/bin/bash
+user1:abc:1001:1001:/bin/bash
+user1:abc:1001:1001:/bin/bash
+user1:abc:1001:1001:/bin/bash
+user3:xyz:1003:1003:/bin/bash
+user3:xyz:1003:1003:/bin/bash
+user3:xyz:1003:1003:/bin/bash
+user1:abc:1001:1001:/bin/bash

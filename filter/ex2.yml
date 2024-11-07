@@ -1,0 +1,12 @@
+---
+- name: Working with filters
+  hosts: all
+  gather_facts: false
+  become: true
+  tasks:
+  - name: Create user 
+    ansible.builtin.user:
+      name: "{{ myname | default('lenovo') }}"
+      state: present
+    delegate_to: workstation.lab.example.com
+...

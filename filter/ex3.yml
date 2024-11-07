@@ -1,0 +1,11 @@
+---
+- name: Working with filters
+  hosts: all
+  gather_facts: false
+  become: true
+  tasks:
+  - name: Use the unique filter
+    ansible.builtin.assert:
+      that:
+        -"{{ [ 1, 4, 2, 2 ] | unique | sort }}" is eq( [ 1, 2, 4 ] )
+...

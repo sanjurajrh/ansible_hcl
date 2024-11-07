@@ -1,0 +1,42 @@
+---
+- name: Using network filter
+  hosts: dev
+  vars:
+    my_list:
+      - 10.0.0.1/24
+      - 192.168.1.2/24
+      - 8.8.4.2
+      - 1.1.1.1
+      - redhat.com
+      - lwsus.com
+  tasks:
+  - name: Gather the network information
+    ansible.builtin.setup:
+      gather_subset: 
+      - '!all'
+      - network
+    register: network_facts
+
+  - name: Print the network_facts
+    ansible.builtin.debug:
+      var: network_facts
+
+
+  - name: Print the collected subset
+    ansible.builtin.debug:
+      msg:  |
+        "{{ ansible_facts['dns']['nameservers'] }}"
+        "{{ ansible_facts['fqdn'] }}"
+        "{{ ansible_facts['domain'] }}"
+
+  - name: Using the netfilter of ipaddr
+    ansible.builtin.debug:
+      msg: "{{ my_list | ansible.utils.ipaddr }}"
+
+
+  - name: Using the netfilter of ipaddr for netmask information
+    ansible.builtin.debug:
+      msg: "{{ my_list | ansible.utils.ipaddr('netmask') }}"
+
+
+...

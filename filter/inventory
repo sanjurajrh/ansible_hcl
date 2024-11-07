@@ -1,0 +1,7 @@
+localhost
+
+[web]
+servera.lab.example.com
+
+[dev]
+serverb.lab.example.com

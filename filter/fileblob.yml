@@ -1,0 +1,9 @@
+---
+- name: Using query plugins
+  hosts: dev
+  gather_facts: false
+  tasks:
+  - name: ENsure v*rc files are listed
+    ansible.builtin.debug:
+      msg: "{{ query('fileblob', '/etc/v*rc') }}"
+...

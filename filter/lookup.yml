@@ -1,0 +1,24 @@
+---
+- name: Using lookup
+  hosts: localhost
+  tasks:
+  - name: Display the existing env variable specific value
+    ansible.builtin.debug:
+      msg: "The value of the environment variable PATH is {{ lookup('ansible.builtin.env', 'PATH') }}"
+  - name: Read the contents of the file
+    ansible.builtin.debug:
+      msg: "{{ lookup('ansible.builtin.file', 'ex1.yml') | from_yaml }}"
+  - name: View the contents of multiple files - using lookup
+    ansible.builtin.debug:
+      msg: "{{ lookup('ansible.builtin.file', 'ex1.yml', 'ex2.yml') }}"
+  - name: View the contents of multiple files - using query 
+    ansible.builtin.debug:
+      msg: "{{ query('ansible.builtin.file', 'ex1.yml', 'ex2.yml') }}"
+  - name: Display who is logged in 
+    ansible.builtin.debug:
+      msg: "{{ lookup('ansible.builtin.pipe', 'date') }}"
+  - name: Access the web site 
+    ansible.builtin.debug:
+      msg: "{{ lookup('ansible.builtin.url', 'http://classroom.example.com') }}"
+
+...

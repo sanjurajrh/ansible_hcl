@@ -1,0 +1,11 @@
+---
+- name: Using facts information within a play
+  hosts: dev
+  become: true
+  gather_facts: true
+  tasks:
+  - name: Create the file in /tmp directory
+    ansible.builtin.copy:
+      content: "Welcome to the host {{ ansible_hostname }} with {{ ansible_processor_count }} processors and {{ ansible_memfree_mb }} free memory" 
+      dest: /tmp/systeminfo.txt
+...

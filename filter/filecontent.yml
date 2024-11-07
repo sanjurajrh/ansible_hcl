@@ -1,0 +1,9 @@
+---
+- name: Display the file contents 
+  hosts: dev
+  tasks:
+  - name: Ensure the contents of the file are displayed
+    ansible.builtin.debug:
+      msg: "{{ query('file', item) }}"
+    loop: "{{ query('fileblob', '/etc/f*.conf') }}"
+...

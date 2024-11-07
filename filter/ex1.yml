@@ -1,0 +1,21 @@
+---
+- name: Working with filters
+  hosts: localhost
+  gather_facts: false
+  vars:
+    myname: welcome to the world of variables
+    mynumber: 6
+  tasks:
+  - name: Using capitalize
+    ansible.builtin.debug:
+      msg: "{{ myname | capitalize }}"
+  - name: Using uppercase
+    ansible.builtin.debug:
+      msg: "{{ myname | upper }}"
+  - name: Using lowercase
+    ansible.builtin.debug:
+      msg: "{{ myname | lower }}"
+  - name: Using string 
+    ansible.builtin.debug:
+      msg: "{{ mynumber | string }}"
+...

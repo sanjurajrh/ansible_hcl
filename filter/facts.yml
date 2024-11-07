@@ -1,0 +1,13 @@
+---
+- name: Collect the facts
+  hosts: dev
+  tasks:
+  - name: Collect the facts 
+    ansible.builtin.setup:
+      gather_subset: all
+
+  - name: Copy of the output to a file
+    ansible.builtin.copy:
+      content: "{{ ansible_facts | to_nice_yaml }}"
+      dest: "{{ inventory_hostname }}.yaml"
+...
