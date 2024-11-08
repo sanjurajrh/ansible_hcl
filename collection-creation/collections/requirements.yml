@@ -1,0 +1,4 @@
+---
+collections:
+  - name: myns.mycollection
+    version: 1.0.1

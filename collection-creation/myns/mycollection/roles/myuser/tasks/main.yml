@@ -1,0 +1,16 @@
+---
+# tasks file for myuser
+- name: Create the user
+  ansible.builtin.user:
+    name: "{{ net_admin | default('rhuser') }}"
+    password: "{{ net_password | password_hash('sha512') }}"
+    state: present
+    uid: 2001
+
+- name: Configure the Message of the day
+  ansible.builtin.template:
+    src: motd.j2
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: 0644

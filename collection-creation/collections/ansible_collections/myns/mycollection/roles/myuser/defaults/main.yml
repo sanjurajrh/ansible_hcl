@@ -1,0 +1,4 @@
+---
+# defaults file for myuser
+net_admin: developer
+net_password: redhat123

@@ -1,0 +1,6 @@
+---
+- name: Using the custom collection
+  hosts: all
+  become: true
+  roles:
+  - role: myns.mycollection.myuser

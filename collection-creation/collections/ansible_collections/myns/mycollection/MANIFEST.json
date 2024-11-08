@@ -1,0 +1,30 @@
+{
+ "collection_info": {
+  "namespace": "myns",
+  "name": "mycollection",
+  "version": "1.0.1",
+  "authors": [
+   "learntoknowmore <devops@lwsus.com>"
+  ],
+  "readme": "README.md",
+  "tags": [],
+  "description": "Collection containing a custom role and an inventory plugin",
+  "license": [
+   "GPL-2.0-or-later"
+  ],
+  "license_file": null,
+  "dependencies": {},
+  "repository": "http://example.com/repository",
+  "documentation": "http://docs.example.com",
+  "homepage": "http://example.com",
+  "issues": "http://example.com/issue/tracker"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "dfea697b32a9cf01aba802f8d09eb659c6aa63546baf48deb771ba746fa9840e",
+  "format": 1
+ },
+ "format": 1
+}
