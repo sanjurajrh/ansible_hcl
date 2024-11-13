@@ -1,6 +1,7 @@
 ---
 - name: Using variables
   hosts: webserver
+  become: true
   vars_files:
   - variable.yml
   tasks:
