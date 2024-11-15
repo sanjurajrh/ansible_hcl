@@ -1,0 +1,15 @@
+---
+ansible-navigator:
+  ansible:
+    inventory:
+      entries:
+      - /home/student/project_test/ansible_hcl/project_test/inventory
+  execution-environment:
+    container-engine: podman
+    enabled: true
+    image: hub.lab.example.com/ee-supported-rhel8
+    pull:
+      policy: missing
+  mode: stdout
+  playbook-artifact:
+    enable: false

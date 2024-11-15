@@ -1,0 +1,6 @@
+---
+- name: Using the collection
+  hosts: all
+  tasks:
+  - name: Example from an Ansible Playbook
+    ansible.windows.win_ping:

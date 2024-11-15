@@ -1,0 +1,10 @@
+---
+- name: Create a sample play
+  hosts: all
+  become: true
+  tasks:
+  - name: Use the builtin copy 
+    ansible.builtin.copy:
+      content: "Welcome to host {{ host_name }}" 
+      dest: /tmp/{{ inventory_hostname }}.txt
+...
